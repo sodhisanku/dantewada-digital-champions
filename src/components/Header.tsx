@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code2, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
+import logo from "@/assets/codebaster-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,8 @@ const Header = () => {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Why Choose Us", href: "#why-choose-us" },
+    { name: "Team", href: "#team" },
+    { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" }
   ];
 
@@ -18,10 +20,8 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="p-2 bg-gradient-hero rounded-lg">
-              <Code2 className="h-6 w-6 text-white" />
-            </div>
+          <div className="flex items-center space-x-3">
+            <img src={logo} alt="CodeBaster Solutions" className="h-8 w-auto" />
             <div>
               <div className="text-lg font-bold text-foreground">CodeBaster</div>
               <div className="text-xs text-muted-foreground">Solutions</div>
