@@ -14,16 +14,16 @@ import {
 const Team = () => {
   const teamMembers = [
     {
-      name: "Amit Kumar",
-      role: "Founder & Lead Developer",
-      bio: "Full-stack developer with 5+ years of experience. Passionate about empowering local youth through technology.",
-      skills: ["React", "Node.js", "Python", "AWS"],
+      name: "Sankuram Sodhi",
+      role: "Full Stack Developer & Academic Mentor",
+      bio: "Full-stack developer skilled in React.js, Next.js, Python, and Frappe Framework. Academic mentor who has guided 90+ students in programming and career growth.",
+      skills: ["React.js", "Next.js", "Python", "Frappe", "ERPNext"],
       image: "/placeholder.svg",
       icon: Code,
       social: {
-        linkedin: "#",
-        github: "#",
-        email: "amit@codebaster.in"
+        linkedin: "https://linkedin.com/in/sankusodhi",
+        github: "https://github.com/sankusodhi",
+        email: "sankuramsodhi23@navgurukul.org"
       }
     },
     {

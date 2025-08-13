@@ -12,28 +12,28 @@ import {
 const SuccessStories = () => {
   const stories = [
     {
-      title: "Local Restaurant Chain Digitalization",
-      client: "Dantewada Food Court",
-      description: "Developed a complete restaurant management system with online ordering, inventory tracking, and customer management.",
+      title: "Trendify E-commerce Platform",
+      client: "Modern Online Retailer",
+      description: "Built a modern, all-in-one e-commerce solution designed to streamline online selling, manage inventory, and enhance customer experience with responsive design.",
       results: [
-        { icon: TrendingUp, label: "Order Efficiency", value: "+150%" },
-        { icon: DollarSign, label: "Revenue Growth", value: "+80%" },
-        { icon: Clock, label: "Time Saved", value: "5 hrs/day" }
+        { icon: TrendingUp, label: "Sales Growth", value: "+180%" },
+        { icon: DollarSign, label: "Revenue Increase", value: "+120%" },
+        { icon: Clock, label: "Order Processing", value: "-65%" }
       ],
-      testimonial: "CodeBaster transformed our business completely. We can now serve more customers efficiently and our revenue has grown significantly.",
-      author: "Rajesh Kumar, Owner"
+      testimonial: "The Trendify platform revolutionized our online business. The inventory management and customer experience features have significantly boosted our sales.",
+      author: "Business Owner"
     },
     {
-      title: "Educational Institute Management",
-      client: "Bastar Learning Academy",
-      description: "Built a comprehensive school management system with student records, fee management, and parent communication portal.",
+      title: "Library Management System",
+      client: "Educational Institution",
+      description: "Developed a comprehensive library management system using Frappe Framework to efficiently manage books, members, and issue-return workflows.",
       results: [
-        { icon: TrendingUp, label: "Admin Efficiency", value: "+200%" },
-        { icon: Clock, label: "Processing Time", value: "-70%" },
-        { icon: Star, label: "Parent Satisfaction", value: "95%" }
+        { icon: TrendingUp, label: "Efficiency Gain", value: "+250%" },
+        { icon: Clock, label: "Processing Time", value: "-80%" },
+        { icon: Star, label: "User Satisfaction", value: "98%" }
       ],
-      testimonial: "The system has made managing our institute so much easier. Parents love the transparency and we save hours of manual work.",
-      author: "Priya Sharma, Principal"
+      testimonial: "The library system built by CodeBaster has completely transformed how we manage our books and members. Everything is now digital and efficient.",
+      author: "Librarian"
     },
     {
       title: "Local Manufacturing ERP",
