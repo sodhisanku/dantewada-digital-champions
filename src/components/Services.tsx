@@ -129,14 +129,18 @@ const Services = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {["React", "Node.js", "Flutter", "MongoDB", "AWS", "Firebase"].map((tech, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {[
+              "JavaScript", "Python", "React.js", "Next.js", "Express.js", "Django",
+              "Flask", "Frappe Framework", "ERPNext", "Tailwind CSS", "Supabase", 
+              "Data Analytics", "AI Prompt Engineering", "Excel", "App Script", "Web Scraping"
+            ].map((tech, index) => (
               <div key={index} className="text-center">
-                <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300 border border-border">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg mx-auto mb-3 flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-primary" />
+                <div className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border border-border group hover:border-primary/20">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg mx-auto mb-2 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Shield className="h-5 w-5 text-primary" />
                   </div>
-                  <div className="font-semibold text-foreground">{tech}</div>
+                  <div className="font-semibold text-foreground text-sm">{tech}</div>
                 </div>
               </div>
             ))}
