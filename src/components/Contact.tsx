@@ -18,20 +18,20 @@ const Contact = () => {
     {
       icon: Globe,
       title: "Website",
-      value: "www.codebaster.in",
-      link: "https://www.codebaster.in"
+      value: "www.codebastersolutions.com",
+      link: "https://www.codebastersolutions.com"
     },
     {
       icon: Mail,
       title: "Email",
-      value: "contact@codebaster.in",
-      link: "mailto:contact@codebaster.in"
+      value: "codebastersolutions@gmail.com",
+      link: "mailto:codebastersolutions@gmail.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+91-9876543210",
-      link: "tel:+919876543210"
+      value: "+91 6268409259",
+      link: "tel:+916268409259"
     },
     {
       icon: MapPin,
@@ -121,7 +121,12 @@ const Contact = () => {
                 />
               </div>
               
-              <Button variant="hero" size="lg" className="w-full">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="w-full hover:scale-105 transition-transform"
+                onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Project Inquiry from Website', '_blank')}
+              >
                 Send Message
                 <Send className="ml-2 h-5 w-5" />
               </Button>
@@ -224,11 +229,21 @@ const Contact = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Free Consultation Request', '_blank')}
+              className="hover:scale-105 transition-transform"
+            >
               Schedule Free Consultation
             </Button>
             
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Brochure Request', '_blank')}
+              className="hover:scale-105 transition-transform"
+            >
               Download Our Brochure
             </Button>
           </div>

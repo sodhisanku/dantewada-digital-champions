@@ -166,7 +166,12 @@ const Team = () => {
           </div>
           
           <div className="text-center">
-            <Button variant="glass" size="lg">
+            <Button 
+              variant="glass" 
+              size="lg"
+              onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Career Opportunities', '_blank')}
+              className="hover:scale-105 transition-transform"
+            >
               View Open Positions
             </Button>
           </div>

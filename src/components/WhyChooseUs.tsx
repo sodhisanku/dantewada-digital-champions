@@ -118,7 +118,12 @@ const WhyChooseUs = () => {
                 who puts your success first.
               </p>
               
-              <Button variant="hero" size="lg" className="mb-8">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="mb-8 hover:scale-105 transition-transform"
+                onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Project Inquiry', '_blank')}
+              >
                 Start Your Project Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -149,11 +154,21 @@ const WhyChooseUs = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="glass" size="lg">
+            <Button 
+              variant="glass" 
+              size="lg"
+              onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Free Consultation Request', '_blank')}
+              className="hover:scale-105 transition-transform"
+            >
               Schedule a Free Consultation
             </Button>
             
-            <Button variant="outline" size="lg" className="bg-white text-secondary border-white hover:bg-white/90">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="bg-white text-secondary border-white hover:bg-white/90 hover:scale-105 transition-all"
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               View Our Portfolio
             </Button>
           </div>

@@ -25,24 +25,46 @@ const Hero = () => {
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          <span className="block">Your Local</span>
-          <span className="block bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent">
-            Digital Partner
-          </span>
+          Start Your <span className="bg-gradient-to-r from-secondary to-secondary/80 bg-clip-text text-transparent">Success Journey</span> Today
         </h1>
         
-        <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Empowering <strong>Dantewada's local talent</strong> to deliver world-class software solutions. 
-          We don't just build apps – we transform your ideas into digital reality.
+        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Transform your business with cutting-edge technology solutions. We specialize in Full-Stack Development, 
+          AI Integration, ERP Solutions, Data Analytics, and Modern Web Applications that drive growth and innovation.
         </p>
         
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center hover:bg-white/20 transition-all">
+            <div className="text-2xl font-bold text-secondary mb-2">🚀</div>
+            <div className="text-sm text-white/90 font-medium">Full-Stack Development</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center hover:bg-white/20 transition-all">
+            <div className="text-2xl font-bold text-secondary mb-2">🤖</div>
+            <div className="text-sm text-white/90 font-medium">AI & Automation</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center hover:bg-white/20 transition-all">
+            <div className="text-2xl font-bold text-secondary mb-2">📊</div>
+            <div className="text-sm text-white/90 font-medium">Data Analytics</div>
+          </div>
+        </div>
+        
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-4 hover:scale-105 transition-transform"
+            onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Project Inquiry', '_blank')}
+          >
             Start Your Project
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           
-          <Button variant="glass" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="glass" 
+            size="lg" 
+            className="text-lg px-8 py-4 hover:scale-105 transition-transform"
+            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             View Our Work
           </Button>
         </div>
