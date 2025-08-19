@@ -2,6 +2,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
+import { useState } from "react";
 import { 
   Mail, 
   Phone, 
@@ -14,6 +16,81 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    projectType: '',
+    description: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!formData.name || !formData.email || !formData.phone || !formData.description) {
+      toast({
+        title: "Required fields missing",
+        description: "Please fill in all required fields (Name, Email, Phone, Project Description)",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Create email content
+    const emailSubject = `New Project Inquiry from ${formData.name}`;
+    const emailBody = `
+Hello CodeBaster Solutions Team,
+
+You have received a new project inquiry from your website:
+
+📋 CLIENT DETAILS:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+📝 PROJECT INFORMATION:
+Service Type: ${formData.projectType || 'Not specified'}
+
+Project Description:
+${formData.description}
+
+---
+This inquiry was submitted through your website contact form.
+Please respond within 24 hours as per your service commitment.
+
+Best regards,
+Website Contact System
+    `.trim();
+
+    // Open email client with pre-filled content
+    const mailtoLink = `mailto:codebastersolutions@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.open(mailtoLink, '_blank');
+    
+    toast({
+      title: "Email client opened!",
+      description: "Your message has been prepared. Please send it from your email client.",
+    });
+
+    // Reset form
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      projectType: '',
+      description: ''
+    });
+  };
+
   const contactInfo = [
     {
       icon: Globe,
@@ -72,20 +149,34 @@ const Contact = () => {
               </p>
             </div>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Name *
                   </label>
-                  <Input placeholder="Your full name" className="border-border" />
+                  <Input 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your full name" 
+                    className="border-border"
+                    required
+                  />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Phone *
                   </label>
-                  <Input placeholder="+91-9876543210" className="border-border" />
+                  <Input 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91-9876543210" 
+                    className="border-border"
+                    required
+                  />
                 </div>
               </div>
               
@@ -93,20 +184,38 @@ const Contact = () => {
                 <label className="block text-sm font-medium text-foreground mb-2">
                   Email *
                 </label>
-                <Input type="email" placeholder="your.email@example.com" className="border-border" />
+                <Input 
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="your.email@example.com" 
+                  className="border-border"
+                  required
+                />
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   Project Type
                 </label>
-                <select className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
-                  <option>Select a service</option>
-                  <option>Web Development</option>
-                  <option>Mobile App Development</option>
-                  <option>ERP/CRM System</option>
-                  <option>IT Consultancy</option>
-                  <option>Technical Support</option>
+                <select 
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select a service</option>
+                  <option value="AI & Machine Learning">🤖 AI & Machine Learning</option>
+                  <option value="Data Analytics & BI">📊 Data Analytics & BI</option>
+                  <option value="Cloud Solutions">☁️ Cloud Solutions</option>
+                  <option value="Cognitive Business Operations">🎯 Cognitive Business Operations</option>
+                  <option value="IT Consultancy">👥 IT Consultancy</option>
+                  <option value="Business Intelligence">📈 Business Intelligence</option>
+                  <option value="Web Development">🌐 Web Development</option>
+                  <option value="Mobile App Development">📱 Mobile App Development</option>
+                  <option value="ERP/CRM System">⚙️ ERP/CRM System</option>
+                  <option value="Other">💡 Other (Specify in description)</option>
                 </select>
               </div>
               
@@ -115,21 +224,29 @@ const Contact = () => {
                   Project Description *
                 </label>
                 <Textarea 
-                  placeholder="Tell us about your project requirements, timeline, and any specific features you need..."
+                  name="description"
+                  value={formData.description}
+                  onChange={handleInputChange}
+                  placeholder="Tell us about your project requirements, timeline, budget range, and any specific features you need..."
                   rows={4}
                   className="border-border"
+                  required
                 />
               </div>
               
               <Button 
+                type="submit"
                 variant="hero" 
                 size="lg" 
                 className="w-full hover:scale-105 transition-transform"
-                onClick={() => window.open('mailto:codebastersolutions@gmail.com?subject=Project Inquiry from Website', '_blank')}
               >
                 Send Message
                 <Send className="ml-2 h-5 w-5" />
               </Button>
+              
+              <p className="text-sm text-muted-foreground text-center">
+                * We'll respond to your inquiry within 24 hours
+              </p>
             </form>
           </Card>
 
